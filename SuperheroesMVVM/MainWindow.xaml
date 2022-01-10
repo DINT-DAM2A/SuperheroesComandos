@@ -80,7 +80,11 @@
                            Style="{StaticResource flechas}"
                            MouseLeftButtonUp="leftImage_MouseLeftButtonUp"></Image>
             -->
-            <Button Content="Anterior" Command="{Binding Path=AnteriorCommand}"></Button>
+            <Button Command="{Binding Path=AnteriorCommand}" Width="50" Background="#FF106408" Template="{DynamicResource ArrowButton}">
+                <Button.OpacityMask>
+                    <ImageBrush ImageSource="assets/arrow.png"/>
+                </Button.OpacityMask>
+            </Button>
             
             <TextBlock x:Name="actualTextBlock"
                                Style="{StaticResource contador}"
@@ -109,7 +113,19 @@
                 </Image.RenderTransform>
             </Image>
             -->
-            <Button Content="Siguiente" Command="{Binding Path=SiguienteCommand}"></Button>
+            <Button Command="{Binding Path=SiguienteCommand}" Width="50" Background="#FF026410" Template="{DynamicResource ArrowButton}">
+                <Button.LayoutTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.LayoutTransform>
+                <Button.OpacityMask>
+                    <ImageBrush ImageSource="assets/arrow.png"/>
+                </Button.OpacityMask>
+            </Button>
         </StackPanel>
         <Image Source="{Binding Path=HeroeActual.Imagen}"
                        Stretch="UniformToFill"
